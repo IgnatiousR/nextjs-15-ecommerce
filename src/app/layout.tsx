@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Bai_Jamjuree } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import NavBar from '@/components/nav-bar';
+import Footer from '@/components/footer';
 
 const baiJamjuree = Bai_Jamjuree({
   subsets: ['latin'],
@@ -23,7 +25,11 @@ export default function RootLayout({
     <html lang="en" className={baiJamjuree.variable} suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <div className="mx-auto p-4 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+            <NavBar />
+            {children}
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
