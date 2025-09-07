@@ -11,23 +11,29 @@ export function ModeToggle() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
   return (
-    <Button
-      onClick={toggleTheme}
-      variant="outline"
-      size="icon"
-      className="relative flex items-center justify-center"
-      aria-label="Toggle theme"
-    >
-      <Sun
-        className={`h-[1.2rem] w-[1.2rem] transition-all ${
-          theme === 'dark' ? 'scale-0 -rotate-90' : 'scale-100 rotate-0'
-        }`}
-      />
+    <button onClick={toggleTheme} className="relative flex items-center justify-center ">
+      <Sun className={`h-4 w-4 transition-all ${theme === 'dark' ? 'scale-0 -rotate-90' : 'scale-100 rotate-0'}`} />
       <Moon
-        className={`absolute h-[1.2rem] w-[1.2rem] transition-all ${
-          theme === 'dark' ? 'scale-100 rotate-0' : 'scale-0 rotate-90'
-        }`}
+        className={`absolute h-4 w-4 transition-all ${theme === 'dark' ? 'scale-100 rotate-0' : 'scale-0 rotate-90'}`}
       />
-    </Button>
+    </button>
+    // <Button
+    //   onClick={toggleTheme}
+    //   variant="outline"
+    //   size="icon"
+    //   className="relative flex items-center justify-center"
+    //   aria-label="Toggle theme"
+    // >
+    //   <Sun
+    //     className={`h-[1.2rem] w-[1.2rem] transition-all ${
+    //       theme === 'dark' ? 'scale-0 -rotate-90' : 'scale-100 rotate-0'
+    //     }`}
+    //   />
+    //   <Moon
+    //     className={`absolute h-[1.2rem] w-[1.2rem] transition-all ${
+    //       theme === 'dark' ? 'scale-100 rotate-0' : 'scale-0 rotate-90'
+    //     }`}
+    //   />
+    // </Button>
   );
 }
