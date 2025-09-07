@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Bai_Jamjuree } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const baiJamjuree = Bai_Jamjuree({
   subsets: ['latin'],
@@ -19,8 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={baiJamjuree.variable}>
-      <body>{children}</body>
+    <html lang="en" className={baiJamjuree.variable} suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
