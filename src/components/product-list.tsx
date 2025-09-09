@@ -81,7 +81,7 @@ const products: ProductsType = [
     colors: [
       { name: "red", hex: "#800000" },
       { name: "orange", hex: "#FFA500" },
-      { name: "black", hex: "#00000000" },
+      { name: "black", hex: "#000000" },
     ],
     images: {
       red: "/products/5r.png",

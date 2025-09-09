@@ -1,47 +1,47 @@
-'use client';
-import { Footprints, Glasses, Briefcase, Shirt, ShoppingBasket, Hand, Venus } from 'lucide-react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+"use client";
+import { Footprints, Glasses, Briefcase, Shirt, ShoppingBasket, Hand, Venus } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const categories = [
   {
-    name: 'All',
+    name: "All",
     icon: <ShoppingBasket className="w-4 h-4" />,
-    slug: 'all',
+    slug: "all",
   },
   {
-    name: 'T-shirts',
+    name: "T-shirts",
     icon: <Shirt className="w-4 h-4" />,
-    slug: 't-shirts',
+    slug: "t-shirts",
   },
   {
-    name: 'Shoes',
+    name: "Shoes",
     icon: <Footprints className="w-4 h-4" />,
-    slug: 'shoes',
+    slug: "shoes",
   },
   {
-    name: 'Accessories',
+    name: "Accessories",
     icon: <Glasses className="w-4 h-4" />,
-    slug: 'accessories',
+    slug: "accessories",
   },
   {
-    name: 'Bags',
+    name: "Bags",
     icon: <Briefcase className="w-4 h-4" />,
-    slug: 'bags',
+    slug: "bags",
   },
   {
-    name: 'Dresses',
+    name: "Dresses",
     icon: <Venus className="w-4 h-4" />,
-    slug: 'dresses',
+    slug: "dresses",
   },
   {
-    name: 'Jackets',
+    name: "Jackets",
     icon: <Shirt className="w-4 h-4" />,
-    slug: 'jackets',
+    slug: "jackets",
   },
   {
-    name: 'Gloves',
+    name: "Gloves",
     icon: <Hand className="w-4 h-4" />,
-    slug: 'gloves',
+    slug: "gloves",
   },
 ];
 
@@ -50,23 +50,26 @@ const Categories = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const selectedCategory = searchParams.get('category');
+  const selectedCategory = searchParams.get("category");
 
   const handleChange = (value: string | null) => {
     const params = new URLSearchParams(searchParams);
-    params.set('category', value || 'all');
+    params.set("category", value || "all");
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   console.log(selectedCategory);
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2  p-2 rounded-lg mb-4 text-sm">
+    <div
+      className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 
+      gap-2 p-2 rounded-lg mb-4 text-sm bg-neutral-200 dark:bg-neutral-700"
+    >
       {categories.map((category) => (
         <div
           key={category.name}
           className={`flex items-center justify-center gap-2 cursor-pointer px-2 py-1 rounded-md ${
-            category.slug === selectedCategory ? 'bg-white dark:bg-black' : 'text-neutral-500 dark:text-neutral-400'
+            category.slug === selectedCategory ? "bg-white dark:bg-black" : "text-neutral-500 dark:text-neutral-400"
           }`}
           onClick={() => handleChange(category.slug)}
         >
