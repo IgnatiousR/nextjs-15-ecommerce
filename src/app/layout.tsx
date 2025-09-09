@@ -23,10 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={baiJamjuree.variable} suppressHydrationWarning>
-      <body className="bg-neutral-100 dark:bg-neutral-900">
+      <body className="bg-neutral-100 dark:bg-neutral-800">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="mx-auto p-4 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
-            <NavBar />
+          <NavBar />
+          <div className="mx-auto px-4 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl pb-4">
             {children}
             <Footer />
           </div>

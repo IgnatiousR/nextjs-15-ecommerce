@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ProductType } from '../../types';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Select,
   SelectContent,
@@ -21,8 +21,17 @@ const ProductCard = ({ product }: { product: ProductType }) => {
     size: product.sizes[0],
     color: product.colors[0],
   });
+  const [selectedSize, setSelectedSize] = useState<string>('');
+
+  // Auto-select the first size on mount
+  useEffect(() => {
+    if (product.sizes.length > 0) {
+      setSelectedSize(product.sizes[0]);
+    }
+  }, [product.sizes]);
+
   return (
-    <div className="shadow-lg rounded-lg overflow-hidden dark:bg-neutral-800">
+    <div className="shadow-lg rounded-lg overflow-hidden bg-white dark:bg-black">
       {/* Image */}
       <Link href={`/products/${product.id}`}>
         <div className="relative aspect-[2/3]">
@@ -61,7 +70,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           </div>
           <div className="flex flex-col gap-1 text-xs">
             <Label className="text-xs">Size</Label>
-            <Select>
+            <Select value={selectedSize} onValueChange={setSelectedSize}>
               <SelectTrigger className="px-2 py-1">
                 <SelectValue placeholder="S" />
               </SelectTrigger>

@@ -5,7 +5,10 @@ import Link from 'next/link';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <div className="mt-26 flex flex-col items-center gap-8 md:gap-0 md:flex-row md:items-start md:justify-between dark:bg-neutral-200 bg-neutral-800 text-white dark:text-black p-8 rounded-lg">
+    <div
+      className="mt-26 flex flex-col items-center gap-8 md:gap-0 md:flex-row md:items-start md:justify-between 
+      dark:bg-black bg-neutral-800 text-white p-8 rounded-lg"
+    >
       <div className="flex flex-col gap-2 items-center md:items-start">
         <Link href="/" className="flex items-center">
           <Image src="/logo.png" alt="Logo" width={36} height={36}></Image>

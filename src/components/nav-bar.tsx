@@ -6,7 +6,7 @@ import { Bell, Home, ShoppingCart } from 'lucide-react';
 
 const NavBar = () => {
   return (
-    <nav className="w-full flex items-center justify-between  border-b border-neutral-300 pb-4">
+    <nav className="sticky top-0 z-50 w-full flex items-center justify-between bg-neutral-100 dark:bg-neutral-800 border-b border-neutral-300 dark:border-neutral-600 py-4 px-6">
       {/* Left */}
       <Link href="/" className="flex items-center">
         <Image src="/logo.png" alt="Logo" width={36} height={36} className="w-6 h-6 md:w-9 md:h-9"></Image>
