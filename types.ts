@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+export type Color = {
+  name: string;
+  hex?: string;
+  rgb?: string;
+};
+
 export type ProductType = {
   id: string | number;
   name: string;
@@ -7,7 +13,10 @@ export type ProductType = {
   description: string;
   price: number;
   sizes: string[];
-  colors: string[];
+  colors: Color[];
+  // images: {
+  //   [key: string]: string;
+  // };
   images: Record<string, string>;
 };
 

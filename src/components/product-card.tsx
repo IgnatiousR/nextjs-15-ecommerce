@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ProductType } from '../../types';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import Link from "next/link";
+import { Color, ProductType } from "../../types";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -12,16 +12,16 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const ProductCard = ({ product }: { product: ProductType }) => {
   const [productTypes, setProductTypes] = useState({
     size: product.sizes[0],
     color: product.colors[0],
   });
-  const [selectedSize, setSelectedSize] = useState<string>('');
+  const [selectedSize, setSelectedSize] = useState<string>("");
 
   // Auto-select the first size on mount
   useEffect(() => {
@@ -36,7 +36,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
       <Link href={`/products/${product.id}`}>
         <div className="relative aspect-[2/3]">
           <Image
-            src={product.images[product.colors[0]]}
+            src={product.images[product.colors[0].name]}
             alt={product.name}
             fill
             className="object-cover hover:scale-105 transition-all duration-300"
@@ -119,17 +119,17 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           <div className="flex flex-col gap-1">
             <span className="text-gray-500">Color</span>
             <div className="flex items-center gap-2">
-              {product.colors.map((color) => (
+              {product.colors.map((color: Color) => (
                 <div
                   className={`cursor-pointer border-1 ${
-                    productTypes.color === color ? 'border-gray-400' : 'border-gray-200'
+                    productTypes.color.name === color.name ? "border-gray-400" : "border-gray-200"
                   } rounded-full p-[1.2px]`}
-                  key={color}
+                  key={color.name}
                   // onClick={() =>
                   //   handleProductType({ type: "color", value: color })
                   // }
                 >
-                  <div className="w-[14px] h-[14px] rounded-full" style={{ backgroundColor: color }} />
+                  <div className="w-[14px] h-[14px] rounded-full" style={{ backgroundColor: color.hex }} />
                 </div>
               ))}
             </div>
