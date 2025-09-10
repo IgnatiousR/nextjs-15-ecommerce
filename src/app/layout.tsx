@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className="bg-neutral-100 dark:bg-neutral-800">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NavBar />
-          <div className="mx-auto px-4 sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl pb-4">
+          <div className="mx-auto px-4 sm:px-0 sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl pb-4">
             {children}
             <Footer />
           </div>
