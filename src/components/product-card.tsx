@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Color, ProductType } from "../../types";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -14,7 +14,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ShoppingCartIcon } from "lucide-react";
 
 const ProductCard = ({ product }: { product: ProductType }) => {
@@ -59,7 +58,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         {/* PRODUCT TYPES */}
         <div className="flex items-center gap-4 text-xs">
           {/* SIZES */}
-          <div className="flex flex-col gap-1">
+          {/* <div className="flex flex-col gap-1">
             <span className="text-gray-500">Size</span>
             <select
               name="size"
@@ -75,11 +74,14 @@ const ProductCard = ({ product }: { product: ProductType }) => {
                 </option>
               ))}
             </select>
-          </div>
+          </div> */}
           <div className="flex flex-col gap-1 text-xs">
             <Label className="text-xs">Size</Label>
-            <Select value={productTypes.size} onValueChange={(value) => handleProductType({ type: "size", value })}>
-              <SelectTrigger className="px-2 py-1">
+            <Select
+              value={productTypes.size}
+              onValueChange={(value) => handleProductType({ type: "size", value })}
+            >
+              <SelectTrigger className="py-1">
                 <SelectValue placeholder="S" />
               </SelectTrigger>
               <SelectContent>
@@ -137,7 +139,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
                   key={color.name}
                   onClick={() => handleProductType({ type: "color", value: color.name })}
                 >
-                  <div className="w-[14px] h-[14px] rounded-full" style={{ backgroundColor: color.hex }} />
+                  <div
+                    className="w-[14px] h-[14px] rounded-full"
+                    style={{ backgroundColor: color.hex }}
+                  />
                 </div>
               ))}
             </div>

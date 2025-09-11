@@ -33,13 +33,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={baiJamjuree.variable} suppressHydrationWarning>
-      {/* <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      ></body> */}
+      {/* <html lang="en" className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning> */}
       <body className="bg-neutral-100 dark:bg-neutral-800">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <NavBar />
-          <div className="mx-auto px-4 sm:px-0 sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl pb-4">
+          <div className="mx-auto px-4 sm:px-0 sm:max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-6xl pb-4">
             {children}
             <Footer />
           </div>

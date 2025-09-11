@@ -1,12 +1,13 @@
-import { Copyright } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Copyright } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <div
-      className="mt-26 flex flex-col items-center gap-8 md:gap-0 md:flex-row md:items-start md:justify-between 
+      className="mt-26 flex flex-col items-center gap-8 md:gap-0 
+      md:flex-row md:items-start md:justify-between 
       dark:bg-black bg-neutral-800 text-white p-8 rounded-lg"
     >
       <div className="flex flex-col gap-2 items-center md:items-start">
