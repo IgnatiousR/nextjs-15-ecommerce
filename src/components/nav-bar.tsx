@@ -1,8 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ModeToggle } from './mode-toggle';
-import SearchBar from './search-bar';
-import { Bell, Home, ShoppingCart } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import { ModeToggle } from "./mode-toggle";
+import SearchBar from "./search-bar";
+import { Bell, Home } from "lucide-react";
+import ShoppingCart from "./shopping-cart";
 
 const NavBar = () => {
   return (
@@ -20,7 +21,8 @@ const NavBar = () => {
           <Home className="w-4 h-4" />
         </Link>
         <Bell className="w-4 h-4" />
-        <ShoppingCart className="w-4 h-4" />
+        {/* <ShoppingCart className="w-4 h-4" /> */}
+        <ShoppingCart />
         <ModeToggle />
         <Link href="login">Sign in</Link>
       </div>
