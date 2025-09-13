@@ -15,12 +15,15 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { ShoppingCartIcon } from "lucide-react";
+import useCartStore from "@/stores/cartStore";
+import { toast } from "sonner";
 
 const ProductCard = ({ product }: { product: ProductType }) => {
   const [productTypes, setProductTypes] = useState({
     size: product.sizes[0],
     color: product.colors[0].name,
   });
+  const { addToCart } = useCartStore();
   // const [selectedSize, setSelectedSize] = useState<string>("");
 
   // // Auto-select the first size on mount
@@ -35,6 +38,15 @@ const ProductCard = ({ product }: { product: ProductType }) => {
       ...prev,
       [type]: value,
     }));
+  };
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      quantity: 1,
+      selectedSize: productTypes.size,
+      selectedColor: productTypes.color,
+    });
+    toast.success("Product added to cart");
   };
 
   return (
@@ -60,23 +72,6 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         {/* PRODUCT TYPES */}
         <div className="flex items-center gap-4 text-xs">
           {/* SIZES */}
-          {/* <div className="flex flex-col gap-1">
-            <span className="text-gray-500">Size</span>
-            <select
-              name="size"
-              id="size"
-              className="ring ring-gray-300 rounded-md px-2 py-1"
-              // onChange={(e) =>
-              //   handleProductType({ type: "size", value: e.target.value })
-              // }
-            >
-              {product.sizes.map((size) => (
-                <option key={size} value={size}>
-                  {size.toUpperCase()}
-                </option>
-              ))}
-            </select>
-          </div> */}
           <div className="flex flex-col gap-1 text-xs">
             <Label className="text-xs">Size</Label>
             <Select
@@ -100,34 +95,6 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           </div>
 
           {/* COLORS */}
-          {/* <RadioGroup defaultValue="comfortable" className="space-y-3">
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="default"
-                id="r1"
-                className="data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500"
-              />
-              <Label htmlFor="r1">Default</Label>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="comfortable"
-                id="r2"
-                className="data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
-              />
-              <Label htmlFor="r2">Comfortable</Label>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="compact"
-                id="r3"
-                className="data-[state=checked]:bg-red-500 data-[state=checked]:border-red-500"
-              />
-              <Label htmlFor="r3">Compact</Label>
-            </div>
-          </RadioGroup> */}
           <div className="flex flex-col gap-1">
             <span className="text-neutral-500">Color</span>
             <div className="flex items-center gap-2">

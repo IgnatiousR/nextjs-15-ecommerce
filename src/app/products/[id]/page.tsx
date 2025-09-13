@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ProductType } from "../../../../types";
 import { products } from "@/data/products-data";
+import ProductInteraction from "@/components/product-interaction";
 
 export const generateMetadata = async ({ params }: { params: { id: string } }) => {
   // TODO:get the product from db
@@ -44,11 +45,11 @@ const ProductPage = async ({
         <h1 className="text-2xl font-medium">{product.name}</h1>
         <p className="text-neutral-500">{product.description}</p>
         <h2 className="text-2xl font-semibold">${product.price.toFixed(2)}</h2>
-        {/* <ProductInteraction
+        <ProductInteraction
           product={product}
           selectedSize={selectedSize}
           selectedColor={selectedColor}
-        /> */}
+        />
         {/* CARD INFO */}
         <div className="flex items-center gap-2 mt-4">
           <Image src="/klarna.png" alt="klarna" width={50} height={25} className="rounded-md" />
