@@ -137,7 +137,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
                     productTypes.color === color.name
                       ? "border-neutral-400 dark:border-neutral-200"
                       : "border-neutral-200 dark:border-neutral-600"
-                  } rounded-full p-[1.2px]`}
+                  } rounded-full p-0.5`}
                   key={color.name}
                   onClick={() => handleProductType({ type: "color", value: color.name })}
                 >

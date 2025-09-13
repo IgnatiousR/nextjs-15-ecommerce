@@ -2,30 +2,12 @@
 
 import Image from "next/image";
 import { ProductType } from "../../../../types";
-
-// TEMPORARY
-const product: ProductType = {
-  id: 1,
-  name: "Adidas CoreFit T-Shirt",
-  shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
-  description:
-    "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
-  price: 59.9,
-  sizes: ["xs", "s", "m", "l", "xl"],
-  colors: [
-    { name: "gray", hex: "#808080" },
-    { name: "green", hex: "#008000" },
-    { name: "purple", hex: "#800080" },
-  ],
-  images: {
-    gray: "/products/1g.png",
-    purple: "/products/1p.png",
-    green: "/products/1gr.png",
-  },
-};
+import { products } from "@/data/products-data";
 
 export const generateMetadata = async ({ params }: { params: { id: string } }) => {
   // TODO:get the product from db
+  const id = (await params).id;
+  const product = products.find((p) => p.id === parseInt(id)) as ProductType;
   // TEMPORARY
   return {
     title: product.name,
@@ -41,6 +23,8 @@ const ProductPage = async ({
   searchParams: Promise<{ color: string; size: string }>;
 }) => {
   const { size, color } = await searchParams;
+  const id = (await params).id;
+  const product = products.find((p) => p.id === parseInt(id)) as ProductType;
 
   const selectedSize = size || (product.sizes[0] as string);
   const selectedColor = color || (product.colors[0].name as string);
@@ -58,7 +42,7 @@ const ProductPage = async ({
       {/* DETAILS */}
       <div className="w-full lg:w-7/12 flex flex-col gap-4">
         <h1 className="text-2xl font-medium">{product.name}</h1>
-        <p className="text-gray-500">{product.description}</p>
+        <p className="text-neutral-500">{product.description}</p>
         <h2 className="text-2xl font-semibold">${product.price.toFixed(2)}</h2>
         {/* <ProductInteraction
           product={product}
@@ -71,7 +55,7 @@ const ProductPage = async ({
           <Image src="/cards.png" alt="cards" width={50} height={25} className="rounded-md" />
           <Image src="/stripe.png" alt="stripe" width={50} height={25} className="rounded-md" />
         </div>
-        <p className="text-gray-500 text-xs">
+        <p className="text-neutral-500 text-xs">
           By clicking Pay Now, you agree to our{" "}
           <span className="underline hover:text-black">Terms & Conditions</span> and{" "}
           <span className="underline hover:text-black">Privacy Policy</span>. You authorize us to

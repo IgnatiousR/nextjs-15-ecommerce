@@ -4,13 +4,22 @@ import { ModeToggle } from "./mode-toggle";
 import SearchBar from "./search-bar";
 import { Bell, Home } from "lucide-react";
 import ShoppingCart from "./shopping-cart";
+import React from "react";
 
 const NavBar = () => {
+  // const [mounted, setMounted] = React.useState(false);
+  // React.useEffect(() => setMounted(true), []);
   return (
     <nav className="sticky top-0 z-50 w-full flex items-center justify-between bg-neutral-100 dark:bg-neutral-800 border-b border-neutral-300 dark:border-neutral-600 py-4 px-6">
       {/* Left */}
       <Link href="/" className="flex items-center">
-        <Image src="/logo.png" alt="Logo" width={36} height={36} className="w-6 h-6 md:w-9 md:h-9"></Image>
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          width={36}
+          height={36}
+          className="w-6 h-6 md:w-9 md:h-9"
+        ></Image>
         <p className="hidden md:block text-md font-semibold  uppercase">Nxt Store</p>
       </Link>
 
@@ -21,10 +30,9 @@ const NavBar = () => {
           <Home className="w-4 h-4" />
         </Link>
         <Bell className="w-4 h-4" />
-        {/* <ShoppingCart className="w-4 h-4" /> */}
         <ShoppingCart />
         <ModeToggle />
-        <Link href="login">Sign in</Link>
+        <Link href="/">Sign in</Link>
       </div>
     </nav>
   );

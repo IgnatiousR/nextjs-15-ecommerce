@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavBar from "@/components/nav-bar";
 import Footer from "@/components/footer";
+import { Toaster } from "@/components/toaster";
 
 const baiJamjuree = Bai_Jamjuree({
   subsets: ["latin"],
@@ -37,7 +38,7 @@ export default function RootLayout({
       <body className="bg-neutral-100 dark:bg-neutral-800">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
@@ -46,6 +47,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
