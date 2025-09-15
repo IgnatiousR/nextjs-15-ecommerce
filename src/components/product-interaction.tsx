@@ -6,6 +6,7 @@ import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Button } from "./ui/button";
 
 const ProductInteraction = ({
   product,
@@ -46,8 +47,7 @@ const ProductInteraction = ({
       selectedColor,
       selectedSize,
     });
-    toast.success("Product added to cart");
-    // toast.success("Product added to cart")
+    toast.success(`${product.name} added to cart`);
   };
   return (
     <div className="flex flex-col gap-4 mt-4">
@@ -57,7 +57,7 @@ const ProductInteraction = ({
         <div className="flex items-center gap-2">
           {product.sizes.map((size) => (
             <div
-              className={`cursor-pointer border-1 p-[2px] ${
+              className={`cursor-pointer border-1 p-1 ${
                 selectedSize === size ? "border-neutral-600" : "border-neutral-300"
               }`}
               key={size}
@@ -80,7 +80,7 @@ const ProductInteraction = ({
         <div className="flex items-center gap-2">
           {product.colors.map((color: Color) => (
             <div
-              className={`cursor-pointer border-1 p-[2px] ${
+              className={`cursor-pointer border-1 p-1 ${
                 selectedColor === color.name ? "border-neutral-300" : "border-white"
               }`}
               key={color.name}
@@ -111,17 +111,25 @@ const ProductInteraction = ({
         </div>
       </div>
       {/* BUTTONS */}
-      <button
+      {/* <button
         onClick={handleAddToCart}
         className="bg-neutral-800 text-white px-4 py-2 rounded-md shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm font-medium"
       >
         <Plus className="w-4 h-4" />
         Add to Cart
-      </button>
-      <button className="ring-1 ring-neutral-400 shadow-lg text-neutral-800 px-4 py-2 rounded-md flex items-center justify-center cursor-pointer gap-2 text-sm font-medium">
+      </button> */}
+      <Button className="cursor-pointer" onClick={handleAddToCart}>
+        <Plus className="w-4 h-4" />
+        Add to Cart
+      </Button>
+      <Button className="shadow-lg bg-white dark:bg-black text-black dark:text-white ring-1 ring-neutral-400 dark:ring-0 cursor-pointer hover:bg-white/70 dark:hover:bg-black/70">
+        <ShoppingCart className="w-4 h-4 " />
+        Buy this Item
+      </Button>
+      {/* <button className="bg-white dark:bg-black ring-1 ring-neutral-400 dark:ring-0 shadow-lg text-neutral-800 dark:text-neutral-200 px-4 py-2 rounded-md flex items-center justify-center cursor-pointer gap-2 text-sm font-medium">
         <ShoppingCart className="w-4 h-4" />
         Buy this Item
-      </button>
+      </button> */}
     </div>
   );
 };

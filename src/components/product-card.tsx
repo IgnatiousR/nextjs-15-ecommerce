@@ -46,7 +46,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
       selectedSize: productTypes.size,
       selectedColor: productTypes.color,
     });
-    toast.success("Product added to cart");
+    toast.success(`${product.name} added to cart`);
   };
 
   return (
@@ -74,10 +74,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           {/* SIZES */}
           <div className="flex flex-col gap-1 text-xs">
             <Label className="text-xs">Size</Label>
-            <Select
-              value={productTypes.size}
-              onValueChange={(value) => handleProductType({ type: "size", value })}
-            >
+            <Select value={productTypes.size} onValueChange={(value) => handleProductType({ type: "size", value })}>
               <SelectTrigger className="py-1">
                 <SelectValue placeholder="S" />
               </SelectTrigger>
@@ -108,10 +105,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
                   key={color.name}
                   onClick={() => handleProductType({ type: "color", value: color.name })}
                 >
-                  <div
-                    className="w-[14px] h-[14px] rounded-full"
-                    style={{ backgroundColor: color.hex }}
-                  />
+                  <div className="w-[14px] h-[14px] rounded-full" style={{ backgroundColor: color.hex }} />
                 </div>
               ))}
             </div>
@@ -122,7 +116,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         <div className="flex items-center justify-between">
           <p className="font-medium">${product.price.toFixed(2)}</p>
           <button
-            // onClick={handleAddToCart}
+            onClick={handleAddToCart}
             className="ring-1 ring-neutral-200 dark:ring-neutral-800 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer 
             hover:dark:text-black hover:dark:bg-white hover:text-white hover:bg-black 
             transition-all duration-300 flex items-center gap-2"

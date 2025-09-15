@@ -9,7 +9,7 @@ import { ShippingFormInputs } from "../../../types";
 import { Button } from "@/components/ui/button";
 import ShippingForm from "@/components/shipping-form";
 import PaymentForm from "@/components/payment-form";
-import { cartItems } from "@/data/cart-items-data";
+// import { cartItems } from "@/data/cart-items-data";
 
 const steps = [
   {
@@ -43,9 +43,7 @@ const CartPageContent = () => {
         {steps.map((step) => (
           <div
             className={`flex items-center gap-2 border-b-2 pb-4 ${
-              step.id === activeStep
-                ? "border-black dark:border-white "
-                : "border-neutral-200 dark:border-neutral-700"
+              step.id === activeStep ? "border-black dark:border-white " : "border-neutral-200 dark:border-neutral-700"
             }`}
             key={step.id}
           >
@@ -56,11 +54,7 @@ const CartPageContent = () => {
             >
               {step.id}
             </div>
-            <p
-              className={`text-sm font-medium ${step.id === activeStep ? "" : "text-neutral-400"}`}
-            >
-              {step.title}
-            </p>
+            <p className={`text-sm font-medium ${step.id === activeStep ? "" : "text-neutral-400"}`}>{step.title}</p>
           </div>
         ))}
       </div>
@@ -69,22 +63,14 @@ const CartPageContent = () => {
         {/* STEPS */}
         <div className="w-full lg:w-7/12 shadow-lg border-1 bg-white dark:bg-black p-8 rounded-lg flex flex-col gap-8">
           {activeStep === 1 ? (
-            cartItems.map((item) => (
+            cart.map((item) => (
               // SINGLE CART ITEM
-              <div
-                className="flex items-center justify-between"
-                key={item.id + item.selectedSize + item.selectedColor}
-              >
+              <div className="flex items-center justify-between" key={item.id + item.selectedSize + item.selectedColor}>
                 {/* IMAGE AND DETAILS */}
                 <div className="flex gap-8">
                   {/* IMAGE */}
                   <div className="relative w-32 h-32 bg-neutral-50 rounded-lg overflow-hidden">
-                    <Image
-                      src={item.images[item.selectedColor]}
-                      alt={item.name}
-                      fill
-                      className="object-contain"
-                    />
+                    <Image src={item.images[item.selectedColor]} alt={item.name} fill className="object-contain" />
                   </div>
                   {/* ITEM DETAILS */}
                   <div className="flex flex-col justify-between">
@@ -99,7 +85,7 @@ const CartPageContent = () => {
                 </div>
                 {/* DELETE BUTTON */}
                 <button
-                  // onClick={() => removeFromCart(item)}
+                  onClick={() => removeFromCart(item)}
                   className="w-8 h-8 rounded-full bg-red-100 hover:bg-red-200 transition-all duration-300 text-red-400 flex items-center justify-center cursor-pointer"
                 >
                   <Trash2 className="w-3 h-3" />
@@ -111,9 +97,7 @@ const CartPageContent = () => {
           ) : activeStep === 3 && shippingForm ? (
             <PaymentForm />
           ) : (
-            <p className="text-sm text-neutral-500">
-              Please fill in the shipping form to continue.
-            </p>
+            <p className="text-sm text-neutral-500">Please fill in the shipping form to continue.</p>
           )}
         </div>
         {/* DETAILS */}
@@ -124,7 +108,7 @@ const CartPageContent = () => {
               <p className="text-neutral-500">Subtotal</p>
               <p className="font-medium">
                 {/* ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)} */}
-                {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+                {cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
               </p>
             </div>
             <div className="flex justify-between text-sm">
@@ -139,16 +123,13 @@ const CartPageContent = () => {
             <div className="flex justify-between">
               <p className=" font-semibold">Total</p>
               <p className="font-medium">
-                {/* ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)} */}
-                ${cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+                {/* ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)} */}$
+                {cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
               </p>
             </div>
           </div>
           {activeStep === 1 && (
-            <Button
-              className="cursor-pointer"
-              onClick={() => router.push("/cart?step=2", { scroll: false })}
-            >
+            <Button className="cursor-pointer" onClick={() => router.push("/cart?step=2", { scroll: false })}>
               Continue
               <ArrowRight className="w-3 h-3" />
             </Button>
