@@ -58,7 +58,7 @@ const Categories = () => {
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
-  console.log(selectedCategory);
+  console.log("C:", selectedCategory);
 
   return (
     <div
@@ -69,11 +69,13 @@ const Categories = () => {
         <div
           key={category.name}
           className={`flex items-center justify-center gap-2 cursor-pointer px-2 py-1 rounded-md ${
-            category.slug === selectedCategory ? "bg-white dark:bg-black" : "text-neutral-500 dark:text-neutral-400"
+            category.slug === selectedCategory
+              ? "bg-white dark:bg-black"
+              : "text-neutral-500 dark:text-neutral-400"
           }`}
           onClick={() => handleChange(category.slug)}
         >
-          {category.icon} {category.name}
+          {category?.icon} {category.name}
         </div>
       ))}
     </div>
