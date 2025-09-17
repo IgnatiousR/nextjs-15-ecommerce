@@ -1,8 +1,8 @@
 // import { PaymentFormInputs, paymentFormSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { PaymentFormInputs, paymentFormSchema } from "../../types";
 import { Button } from "./ui/button";
@@ -16,9 +16,9 @@ const PaymentForm = () => {
     resolver: zodResolver(paymentFormSchema),
   });
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const handlePaymentForm: SubmitHandler<PaymentFormInputs> = (data) => {};
+  const handlePaymentForm: SubmitHandler<PaymentFormInputs> = (_data) => {};
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(handlePaymentForm)}>
@@ -59,7 +59,9 @@ const PaymentForm = () => {
           placeholder="01/32"
           {...register("expirationDate")}
         />
-        {errors.expirationDate && <p className="text-xs text-red-500">{errors.expirationDate.message}</p>}
+        {errors.expirationDate && (
+          <p className="text-xs text-red-500">{errors.expirationDate.message}</p>
+        )}
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor="cvv" className="text-xs text-gray-500 font-medium">

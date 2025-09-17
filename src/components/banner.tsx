@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef, useState, useEffect } from "react";
+import type { EmblaCarouselType } from "embla-carousel";
 
 const Banner = () => {
   const autoplay = useRef(
@@ -19,7 +20,7 @@ const Banner = () => {
     })
   );
 
-  const [api, setApi] = useState<any>();
+  const [api, setApi] = useState<EmblaCarouselType | undefined>(undefined);
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
@@ -38,13 +39,11 @@ const Banner = () => {
     <div>
       <Carousel
         className="mb-4"
-        opts={{
-          loop: true,
-        }}
+        opts={{ loop: true }}
         plugins={[autoplay.current]}
         onMouseEnter={autoplay.current.stop}
         onMouseLeave={autoplay.current.reset}
-        setApi={setApi} // capture Embla API
+        setApi={setApi} // ✅ type-safe now
       >
         <CarouselContent>
           <CarouselItem>

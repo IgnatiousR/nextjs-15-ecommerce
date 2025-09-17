@@ -8,6 +8,16 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+
+const colors = [
+  { name: "Red", value: "red", class: "border-red-500" },
+  { name: "Blue", value: "blue", class: "border-blue-500" },
+  { name: "Green", value: "green", class: "border-[#10b981]" },
+  { name: "Black", value: "black", class: "border-black" },
+];
+
 const ProductInteraction = ({
   product,
   selectedSize,
@@ -21,6 +31,8 @@ const ProductInteraction = ({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [quantity, setQuantity] = useState(1);
+
+  const [selected, setSelected] = useState("red");
 
   const { addToCart } = useCartStore();
 
@@ -110,6 +122,58 @@ const ProductInteraction = ({
           </button>
         </div>
       </div>
+
+      {/* <RadioGroup value={selected} onValueChange={setSelected} className="flex gap-4">
+        {colors.map((c) => (
+          <div key={c.value} className="flex flex-col items-center">
+            <RadioGroupItem
+              value={c.value}
+              id={c.value}
+              className={`h-4 w-4 rounded-full ${c.class} 
+              border-2  data-[state=checked]:ring-2 `}
+            />
+            <Label htmlFor={c.value} className="text-xs mt-1">
+              {c.name}
+            </Label>
+          </div>
+        ))}
+      </RadioGroup> */}
+
+      <RadioGroup defaultValue="comfortable" className="flex gap-4">
+        {/* Red square */}
+        <div className="flex items-center gap-2">
+          <RadioGroupItem value="red" id="r1" className="peer sr-only" />
+          <Label
+            htmlFor="r1"
+            className="h-6 w-6 bg-red-500 cursor-pointer
+            ring-offset-4 ring-offset-background
+            peer-data-[state=checked]:ring-2
+          peer-data-[state=checked]:ring-black dark:peer-data-[state=checked]:ring-white"
+          />
+        </div>
+
+        {/* Blue square */}
+        <div className="flex items-center gap-2">
+          <RadioGroupItem value="blue" id="r2" className="peer sr-only" />
+          <Label
+            htmlFor="r2"
+            className="h-6 w-6 bg-blue-500 cursor-pointer
+            ring-offset-4 ring-offset-background
+            peer-data-[state=checked]:ring-2 peer-data-[state=checked]:ring-black dark:peer-data-[state=checked]:ring-white"
+          />
+        </div>
+
+        {/* Green square */}
+        <div className="flex items-center gap-2">
+          <RadioGroupItem value="green" id="r3" className="peer sr-only" />
+          <Label
+            htmlFor="r3"
+            className="h-6 w-6 bg-green-500 cursor-pointer
+            ring-offset-4 ring-offset-background
+            peer-data-[state=checked]:ring-2 peer-data-[state=checked]:ring-black dark:peer-data-[state=checked]:ring-white"
+          />
+        </div>
+      </RadioGroup>
       {/* BUTTONS */}
       {/* <button
         onClick={handleAddToCart}

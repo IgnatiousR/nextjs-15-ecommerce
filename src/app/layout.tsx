@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bai_Jamjuree, Geist, Geist_Mono } from "next/font/google";
+import { Bai_Jamjuree } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavBar from "@/components/nav-bar";
@@ -10,16 +10,6 @@ const baiJamjuree = Bai_Jamjuree({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700"],
   variable: "--font-bai-jamjuree",
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {

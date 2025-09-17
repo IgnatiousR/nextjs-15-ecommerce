@@ -1,6 +1,5 @@
 import Banner from "@/components/banner";
 import ProductList from "@/components/product-list";
-import Image from "next/image";
 
 export default async function HomePage({
   searchParams,
