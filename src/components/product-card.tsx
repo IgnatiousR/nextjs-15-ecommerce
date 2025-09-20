@@ -52,7 +52,8 @@ const ProductCard = ({ product }: { product: ProductType }) => {
   return (
     <div className="shadow-lg rounded-lg overflow-hidden bg-white dark:bg-black">
       {/* Image */}
-      <Link href={`/products/${product.id}`}>
+      {/* <Link href={`/products/${product.id}`}> */}
+      <Link href={`/products/${product.slug}`}>
         <div className="relative aspect-[2/3]">
           <Image
             src={product.images[productTypes.color]}
@@ -65,7 +66,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
       {/* PRODUCT DETAIL */}
       <div className="flex flex-col gap-4 p-4">
-        <Link href={`/products/${product.id}`}>
+        <Link href={`/products/${product.slug}`}>
           <h1 className="font-medium">{product.name}</h1>
         </Link>
         <p className="text-sm text-gray-500">{product.shortDescription}</p>
@@ -74,7 +75,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           {/* SIZES */}
           <div className="flex flex-col gap-1 text-xs">
             <Label className="text-xs">Size</Label>
-            <Select value={productTypes.size} onValueChange={(value) => handleProductType({ type: "size", value })}>
+            <Select
+              value={productTypes.size}
+              onValueChange={(value) => handleProductType({ type: "size", value })}
+            >
               <SelectTrigger className="py-1">
                 <SelectValue placeholder="S" />
               </SelectTrigger>
@@ -105,7 +109,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
                   key={color.name}
                   onClick={() => handleProductType({ type: "color", value: color.name })}
                 >
-                  <div className="w-[14px] h-[14px] rounded-full" style={{ backgroundColor: color.hex }} />
+                  <div
+                    className="w-[14px] h-[14px] rounded-full"
+                    style={{ backgroundColor: color.hex }}
+                  />
                 </div>
               ))}
             </div>
