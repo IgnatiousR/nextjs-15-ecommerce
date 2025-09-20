@@ -15,10 +15,27 @@ export type ProductType = {
   price: number;
   sizes: string[];
   colors: Color[];
-  // images: {
-  //   [key: string]: string;
-  // };
   images: Record<string, string>;
+  category?: string;
+  tags?: string[];
+  sku?: string;
+  stock?: number;
+  weight?: number;
+  dimensions?: { width: number; height: number; depth: number };
+  brand?: string;
+  rating?: number;
+  reviews?: ReviewType[];
+  featured?: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
+};
+
+export type ReviewType = {
+  id: string | number;
+  user: string;
+  rating: number;
+  comment: string;
+  date: Date;
 };
 
 export type ProductsType = ProductType[];

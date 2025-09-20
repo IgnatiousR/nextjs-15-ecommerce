@@ -21,6 +21,8 @@ export const products: ProductsType = [
       purple: "/products/1p.png",
       green: "/products/1gr.png",
     },
+    createdAt: new Date("2025-08-26 14:10:13.425976"),
+    updatedAt: new Date("2025-08-26 14:10:13.425976"),
   },
   {
     id: 2,
