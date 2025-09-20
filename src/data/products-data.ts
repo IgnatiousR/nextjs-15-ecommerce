@@ -4,6 +4,7 @@ export const products: ProductsType = [
   {
     id: 1,
     name: "Adidas CoreFit T-Shirt",
+    slug: "adidas-corefit-t-shirt",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -24,6 +25,7 @@ export const products: ProductsType = [
   {
     id: 2,
     name: "Puma Ultra Warm Zip",
+    slug: "puma-ultra-warm-zip",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -38,6 +40,7 @@ export const products: ProductsType = [
   {
     id: 3,
     name: "Nike Air Essentials Pullover",
+    slug: "nike-air-essentials-pullover",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -57,6 +60,7 @@ export const products: ProductsType = [
   {
     id: 4,
     name: "Nike Dri Flex T-Shirt",
+    slug: "nike-dri-flex-t-shirt",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -71,6 +75,7 @@ export const products: ProductsType = [
   {
     id: 5,
     name: "Under Armour StormFleece",
+    slug: "under-armour-stormfleece",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -90,6 +95,7 @@ export const products: ProductsType = [
   {
     id: 6,
     name: "Nike Air Max 270",
+    slug: "nike-air-max-270",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -103,7 +109,8 @@ export const products: ProductsType = [
   },
   {
     id: 7,
-    name: "Nike Ultraboost Pulse ",
+    name: "Nike Ultraboost Pulse",
+    slug: "nike-ultraboost-pulse",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -118,6 +125,7 @@ export const products: ProductsType = [
   {
     id: 8,
     name: "Levi’s Classic Denim",
+    slug: "levi’s-classic-denim",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",

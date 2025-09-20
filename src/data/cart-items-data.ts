@@ -4,6 +4,7 @@ export const cartItems: CartItemsType = [
   {
     id: 1,
     name: "Adidas CoreFit T-Shirt",
+    slug: "adidas-corefit-t-shirt",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -26,6 +27,7 @@ export const cartItems: CartItemsType = [
   {
     id: 2,
     name: "Puma Ultra Warm Zip",
+    slug: "puma-ultra-warm-zip",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
@@ -43,6 +45,7 @@ export const cartItems: CartItemsType = [
   {
     id: 3,
     name: "Nike Air Essentials Pullover",
+    slug: "nike-air-essentials-pullover",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",

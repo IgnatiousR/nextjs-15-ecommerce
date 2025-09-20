@@ -9,6 +9,7 @@ export type Color = {
 export type ProductType = {
   id: string | number;
   name: string;
+  slug: string;
   shortDescription: string;
   description: string;
   price: number;
