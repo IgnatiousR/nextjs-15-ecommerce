@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ProductType } from "../../../../types";
 import { products } from "@/data/products-data";
 import ProductInteraction from "@/components/product-interaction";
+import { notFound } from "next/navigation";
 
 export const metadataBase = new URL("http://localhost:3000");
 export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
@@ -43,6 +44,7 @@ const ProductPage = async ({
   const { size, color } = await searchParams;
   const slug = (await params).slug;
   const product = products.find((p) => p.slug === slug) as ProductType;
+  if (!product) notFound();
 
   const selectedSize = size || (product.sizes[0] as string);
   const selectedColor = color || (product.colors[0].name as string);

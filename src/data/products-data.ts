@@ -127,7 +127,7 @@ export const products: ProductsType = [
   {
     id: 8,
     name: "Levi’s Classic Denim",
-    slug: "levi’s-classic-denim",
+    slug: "levis-classic-denim",
     shortDescription: "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
     description:
       "Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit. Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.",
